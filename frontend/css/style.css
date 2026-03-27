@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7fb;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.form input {
+    padding: 10px;
+    margin: 5px;
+    width: 30%;
+}
+
+.form button {
+    padding: 10px 15px;
+    background: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background: #388e3c;
+}
+
+.skill {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.skill:last-child {
+    border-bottom: none;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress {
+    height: 8px;
+    background: #ddd;
+    border-radius: 6px;
+    margin-top: 6px;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #4CAF50;
+    border-radius: 6px;
+}
+
+.actions button {
+    margin-right: 5px;
+    padding: 6px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.delete {
+    background: #e53935;
+    color: white;
+}
+
+.log {
+    background: #2196f3;
+    color: white;
+}
+
+.dashboard p {
+    margin: 5px 0;
+}
