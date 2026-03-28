@@ -1,0 +1,27 @@
+#when this pipeline run?
+trigger:
+  branches:
+    include:
+      - new
+
+#where pipeline run? 
+pool:
+  vmImage: ubuntu-latest 
+
+stages:
+  - stage: CodeClone 
+    displayName: 'code clone'
+    jobs:
+      - job: CloneJob
+        steps:
+          - script: echo "Cloning repository"
+      
+  - stage: Build 
+    displayName: 'build stage'
+    jobs:
+      - job: build_Docker 
+        steps:
+          - script: docker --version
+          - script: docker compose version
+          - script: docker compose build
+
