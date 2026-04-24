@@ -13,18 +13,21 @@ jobs:
 
       - name: install jdk if needed
         uses: actions/setup-java@v3
+        with:
+          java-version: 17 
+          distrubution: temurin
 
       - name: login into docker-hub
-        uses: docker/login-actions@v3
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.Username }}
           password: ${{secrets.password }} 
 
       - name: docker build images
-        run: docker build -t  ${{ secrets.Username }}/java:v1
+        run: docker build -t  ${{ secrets.Username }}/java:v1 .
 
       - name: push into docker-hub
-        run: docker push -${{ secrets.Username }}/java:v1
+        run: docker push ${{ secrets.Username }}/java:v1
       - name: docker build containers
         run: docker run -d ${{ secrets.Username }}/java:v1
 
