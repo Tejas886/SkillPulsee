@@ -1,0 +1,32 @@
+name: skillearn demo 
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: clone to runner 
+        uses: actions/checkout@v3
+
+      - name: install jdk if needed
+        uses: actions/setup-java@v3
+
+      - name: login into docker-hub
+        uses: docker/login-actions@v3
+        with:
+          username: ${{ secrets.Username }}
+          password: ${{secrets.password }} 
+
+      - name: docker build images
+        run: docker build -t  ${{ secrets.Username }}/java:v1
+
+      - name: push into docker-hub
+        run: docker push -${{ secrets.Username }}/java:v1
+      - name: docker build containers
+        run: docker run -d ${{ secrets.Username }}/java:v1
+
+
+      
