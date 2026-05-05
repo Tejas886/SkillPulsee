@@ -20,16 +20,16 @@ jobs:
       - name: login into docker-hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.Username }}
-          password: ${{secrets.password }} 
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{secrets.DOCKERHUB_TOKEN }} 
 
       - name: docker build images
-        run: docker build -t  ${{ secrets.Username }}/java:v1 .
+        run: docker build -t  ${{ secrets.DOCKERHUB_USERNAME }}/java:v1 .
 
       - name: push into docker-hub
-        run: docker push ${{ secrets.Username }}/java:v1
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/java:v1
       - name: docker build containers
-        run: docker run -d ${{ secrets.Username }}/java:v1
+        run: docker run -d ${{ secrets.DOCKERHUB_USERNAME }}/java:v1
 
 
       
