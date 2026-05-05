@@ -29,7 +29,7 @@ jobs:
       - name: push into docker-hub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/java:v1
       - name: docker build containers
-        run: docker run -d -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/java:v1
+        run: docker run -p 8080:8080 -e DB_HOST=172.31.37.72 tejasgowramma123/java:v1
 
 
       
