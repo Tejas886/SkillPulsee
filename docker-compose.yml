@@ -1,3 +1,4 @@
+#versions
 version: "3.9"
 
 services:
@@ -34,6 +35,7 @@ services:
         condition: service_healthy
     expose:
       - "8080"
+      
 
   nginx:
     image: nginx:alpine
